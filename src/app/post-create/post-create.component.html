@@ -17,14 +17,10 @@
       <mat-error *ngIf="title.invalid">Field Required.</mat-error>
     </mat-form-field>
 
-    <!--Date of Birth-->
-
-    
-
-     <!--Address-->
+     <!--Password-->
     <mat-form-field>
-      <mat-label>Address</mat-label>
-      <input matInput type="text" name="address" ngModel required minlength="6" #title="ngModel">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" rows ="4" name="password" ngModel required minlength="6" #title="ngModel">
     </mat-form-field>
 
      <!--Phone-->
@@ -37,13 +33,17 @@
     <mat-form-field>
         <mat-label>Email</mat-label>
       <input matInput type="text" name="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
 
     <button mat-raised-button color="accent" type="submit">Join!</button>
+    Already a member?
+    <button mat-button [routerLink]="['/login']">Login</button>
+
   </form>
 </mat-card>
+
+
 
 
 <!--Age-->

@@ -13,8 +13,12 @@ import { NgForm } from "@angular/forms";
 })
 export class PostEditComponent implements OnInit {
   post : any = [];
-  myTitle : String; 
-  myContent : String; 
+  title : String; 
+  name : String; 
+  password : String; 
+  email : String; 
+  number : Number; 
+
   constructor(private router:Router, private route: ActivatedRoute, private service:PostService) { }
 
   ngOnInit() {
@@ -23,13 +27,13 @@ export class PostEditComponent implements OnInit {
     {
       this.post = data;
       console.log(this.post);
-      this.myTitle = this.post.title;
-      console.log("message" +this.myTitle);
+      this.title = this.post.title;
+      console.log("message" +this.title);
 
     });
   }
   onEditPost(form: NgForm) {
-    this.service.updatePost(this.post._id, form.value.title, form.value.name, form.value.number, form.value.address, form.value.email ).subscribe(() =>
+    this.service.updatePost(this.post._id, form.value.title, form.value.name, form.value.number, form.value.password, form.value.email ).subscribe(() =>
     {
       this.router.navigate(['/list']);
     });

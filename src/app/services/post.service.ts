@@ -15,8 +15,9 @@ export class PostService {
       return this.http.get("http://localhost:8081/api/posts");
     }
 
-  addPost(title: String, name: String, number:number, address:String, email:String): Observable<any> {
-    const post: Post = {title: title, name: name, number: number, address: address, email: email};
+    // When adding put it in post-create.component.ts, post.model.ts, post.service.ts and server.js/app.post
+  addPost(title: String, name: String, number:number, password:String, email:String): Observable<any> {
+    const post: Post = {title: title, name: name, password: password, number: number, email: email};
     return this.http.post("http://localhost:8081/api/posts",post);
   }
 
@@ -28,8 +29,8 @@ export class PostService {
     return this.http.get("http://localhost:8081/api/posts/"+id);
   }
 
-  updatePost(id:String, title: String, name: String, number:number, address:String, email:String): Observable<any> {
-    const post: Post = {title: title, name: name, number: number, address: address, email: email};
+  updatePost(id:String, title: String, name: String, password:String, number:number, email:String): Observable<any> {
+    const post: Post = {title: title, name: name, password: password, number: number, email: email};
   return this.http.put("http://localhost:8081/api/posts/"+id, post);
   }
 }

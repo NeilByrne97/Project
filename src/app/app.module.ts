@@ -21,6 +21,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostEditComponent } from './post-edit/post-edit.component';
 import { MembershipsComponent } from './memberships/memberships.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {
@@ -38,7 +39,13 @@ const appRoutes: Routes = [
   {
     path: 'memberships',
     component: MembershipsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
+
+
 ];
 
 
@@ -48,7 +55,8 @@ const appRoutes: Routes = [
     PostDetailsComponent,
     PostCreateComponent,
     PostEditComponent,
-    MembershipsComponent
+    MembershipsComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

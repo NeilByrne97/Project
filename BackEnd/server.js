@@ -12,10 +12,10 @@ var postSchema = new Schema({
     title: String,
     name: String,
     number: Number,
-    address: String,
+    password: String,
     email: String
     
-})
+})    // When adding put it in post-create.component.ts, post.model.ts, post.service.ts and server.js/app.post
 var PostModel = mongoose.model('post', postSchema);
 
 
@@ -46,14 +46,14 @@ app.post('/api/posts', function(req, res){
     console.log(req.body.title);
     console.log(req.body.name);
     console.log(req.body.number);
-    console.log(req.body.address);
+    console.log(req.body.password);
     console.log(req.body.email);
 
     PostModel.create({
         title: req.body.title,
         name: req.body.name,
         number: req.body.number,
-        address: req.body.address,
+        password: req.body.password,
         email: req.body.email
     });
     res.send('Item added');
@@ -82,7 +82,7 @@ app.put('/api/posts/:id', function(req, res){
     console.log(req.body.title);
     console.log(req.body.name);
     console.log(req.body.number);
-    console.log(req.body.address);
+    console.log(req.body.password);
     console.log(req.body.email);
 
 

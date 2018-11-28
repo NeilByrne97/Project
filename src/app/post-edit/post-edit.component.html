@@ -1,45 +1,65 @@
 <mat-card>
-    <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <form (submit)="onEditPost(postForm)" #postForm="ngForm">
   
-   <!--Title-->
-   <mat-form-field>
-      <mat-select name="title" [(value)]="selected" placeholder ="title">
-          <mat-label>Title</mat-label>
-        <mat-option value="Mr">Mr</mat-option>
-        <mat-option value="Ms">Ms</mat-option>
-        <mat-option value="Mrs">Mrs</mat-option>
-      </mat-select>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="title"
+          ngModel={{post.title}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Invalid.</mat-error>
+      </mat-form-field>
 
-    <!--Name-->
-    <mat-form-field>
-      <mat-label>Name</mat-label>
-      <input matInput type="text" name="name" ngModel required minlength="3" #title="ngModel">
-      <mat-error *ngIf="title.invalid">Field Required.</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="name"
+          ngModel={{post.name}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Invalid.</mat-error>
+      </mat-form-field>
 
-     <!--Address-->
-    <mat-form-field>
-      <mat-label>Address</mat-label>
-      <input matInput type="text" name="address" ngModel required minlength="6" #title="ngModel">
-    </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="password"
+          ngModel={{post.password}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Invalid.</mat-error>
+      </mat-form-field>
 
-     <!--Phone-->
-    <mat-form-field>
-      <mat-label>Phone Number</mat-label>
-      <input matInput type="tel" name="number" ngModel required minlength="8" maxlength="18" #title="ngModel">
-    </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="email"
+          ngModel={{post.email}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Invalid.</mat-error>
+      </mat-form-field>
 
-    <!--Email-->
-    <mat-form-field>
-        <mat-label>Email</mat-label>
-      <input matInput type="text" name="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="number"
+          ngModel={{post.number}}
+          required
+          #content="ngModel">
+        </textarea>
+        <mat-error *ngIf="content.invalid">Invalid.</mat-error>
+      </mat-form-field>
 
-  
-  
-      <button mat-raised-button color="accent" type="submit">Join!</button>
+      <button
+        mat-raised-button
+        color="accent"
+        type="submit">Update</button>
     </form>
   </mat-card>
   
